@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /*background-color: #eb9f2d;*/
+        /*background-image: url(./gradient.jpg);*/
+        background-image: url(./642d6185bb6027230d3b2dde_Padauk\ Flower.jpeg);
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5;
+        /* 好きな透過度に */
+        z-index: -1;
+        /* 背景になるように後ろへ */
+        background-repeat: repeat;
+
+    }
+
+    form {
+        background-color: #f0a12b;
+        padding: 30px;
+        max-width: 500px;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        color: #11100f;
+        box-sizing: border-box;
+
+    }
+
+    label {
+        display: block;
+        margin-top: 3px;
+        font-weight: bold;
+    }
+
+    input,
+    select,
+    label {
+        width: 100%;
+        margin-bottom: 1px;
+        font-size: 18px;
+    }
+
+    button {
+
+        padding: 10px;
+        width: 50%;
+        background-color: rgb(15, 174, 202);
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+
+    }
+
+    button:hover {
+        background-color: #d85e0d;
+    }
+
+    .header1,
+    .header2 {
+        /*color: #f3a11c;*/
+        color: rgb(20, 19, 39);
+        text-shadow: 5px 5px 4px rgb(134, 111, 6), 0 0 30px rgb(148, 115, 7), 0 0 50px rgb(124, 106, 5);
+        text-align: center;
+        text-decoration: solid;
+        font-family: Algerian;
+        font-size: large;
+        animation: swing 1s ease-in-out infinite alternate;
+
+    }
+
+    @keyframes swing {
+        0% {
+            transform: translateX(-30px);
+        }
+
+        100% {
+            transform: translateX(40px);
+        }
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: auto;
+    }
+
+    .img-container {
+        text-align: center;
+        /* 横中央揃え */
+    }
+
+    .img-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    @media screen and (max-width: 600px) {
+        form {
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        input,
+        label,
+        select {
+            font-size: 16px;
+        }
+    }
+
+    .dropbtn {
+        background-color: #066366;
+        color: white;
+        padding: 15px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown {
+        position: relative;
+        width: 20%;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #4fca07;
+        min-width: 50px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 9px 9px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #0fd88b
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+</style>
+
+
+<body>
+
+    <div class="header1">
+        <h1>Welcome Hokkaido Thingyan Festival</h1>
+    </div>
+
+    <div class="header2">
+        <h1>2025</h1>
+    </div>
+
+    <div class="img-container">
+        <img src="./a00e39165833023.Y3JvcCwxMzc5LDEwNzksNiww.png" alt="" class="a" width="200">
+
+    </div>
+    <br>
+    <div class="form-container">
+        <form id="regForm">
+
+            <label>Date:<br><input type="date" name="date"></label><br>
+            <label>Name: <br><input type="text" name="name" required></label><br>
+            <label>Gender:<br>
+                <select name="gender" required>
+                    <option value="">Select</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </label><br>
+            <label>Phone: <br><input type="text" name="phone" required></label><br>
+            <label>Email: <br><input type="email" name="email" required></label><br>
+            <label>Address: <br><input type="text" name="address"></label><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <p id="msg"></p>
+
+    <script>
+        const form = document.getElementById('regForm');
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            // 通常のテキストデータ送信
+            const data = {
+                date: formData.get('date'),
+                name: formData.get('name'),
+                gender: formData.get('gender'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                address: formData.get('address'),
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbwHx43XWzj9uUTSRHOLF8m0SrbOlkFXjVeOrqXN058DnuqenaW4sJqlq63KUAmICA/exec', {
+                method: 'POST',
+                body: formData
+            })
+                .then(res => res.text())
+                .then(text => {
+                    // 送信成功後、thanks.htmlに遷移。メッセージをURLに含める。
+                    const msg = encodeURIComponent("Thanks for your submission。\n\nTo Transfer : ゆうちょ銀行 : 465468655565\nPlease send your payment Confirmation Letter to this Acc「MYAH FACEBOOK MESSENGER」\nWe will send ticket!");
+                    window.location.href = "thanks.html?msg=" + msg;
+                    form.reset(); // 遷移するので実は不要ですが、残してもOK
+                })
+                .catch(err => {
+                    document.getElementById("msg").innerText = "Error: " + err;
+
+                });
+        });
+    </script>
+
+</body>
+
+</html>
