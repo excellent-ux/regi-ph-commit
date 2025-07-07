@@ -203,8 +203,8 @@
                 </select>
             </label><br>
             <label>Phone: <br><input type="text" name="phone" required></label><br>
-            <label>Email: <br><input type="email" name="email" required></label><br>
-            <label>Address: <br><input type="text" name="address"></label><br>
+            <label>NOTE : If you don't have a phone no:,you can enter "000-000-000".</label><br>
+            <label>Facebook Name: <br><input type="text" name="fbName" required></label><br>
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -225,11 +225,11 @@
                 name: formData.get('name'),
                 gender: formData.get('gender'),
                 phone: formData.get('phone'),
-                email: formData.get('email'),
-                address: formData.get('address'),
+                fbName: formData.get('fbName'),
             };
 
-            fetch('https://script.google.com/macros/s/AKfycbwHx43XWzj9uUTSRHOLF8m0SrbOlkFXjVeOrqXN058DnuqenaW4sJqlq63KUAmICA/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbwXvq5D0Q31IrToBDcaG2ejdZRKaLxiOlTnKwIEzc9E3M76XEkvopxrK35Zd00nkSLx/exec', {
+                
                 method: 'POST',
                 body: formData
             })
