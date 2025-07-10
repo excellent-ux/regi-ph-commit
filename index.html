@@ -205,7 +205,8 @@
             <label>Phone: <br><input type="text" name="phone" required></label><br>
             <label>NOTE : If you don't have a phone no:,you can enter "000-000-000".</label><br>
             <label>Facebook Name: <br><input type="text" name="fbName" required></label><br>
-            <a href="https://www.facebook.com/share/19SZ8dXmGi/?mibextid=wwXIfr">Please Hi to this facebook Page.</a><br><br>
+            <a href="https://www.facebook.com/share/19SZ8dXmGi/?mibextid=wwXIfr">Please Hi to this facebook
+                Page.<b>Required(必要)</b></a><br><br>
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -213,6 +214,19 @@
     <p id="msg"></p>
 
     <script>
+        let facebookClicked = false;
+
+        function markFacebookClicked() {
+            facebookClicked = true;
+        }
+
+        function validateForm() {
+            if (!facebookClicked) {
+                alert("Facebookページにアクセスしてください。");
+                return false;
+            }
+            return true;
+        }
         const form = document.getElementById('regForm');
 
         form.addEventListener('submit', async e => {
@@ -230,14 +244,14 @@
             };
 
             fetch('https://script.google.com/macros/s/AKfycbwXvq5D0Q31IrToBDcaG2ejdZRKaLxiOlTnKwIEzc9E3M76XEkvopxrK35Zd00nkSLx/exec', {
-                
+
                 method: 'POST',
                 body: formData
             })
                 .then(res => res.text())
                 .then(text => {
                     // 送信成功後、thanks.htmlに遷移。メッセージをURLに含める。
-                    const msg = encodeURIComponent("Thanks for your submission。\n\nTo Transfer : ゆうちょ銀行 : 465468655565\nPlease send your payment Confirmation Letter to this Acc「MYAH FACEBOOK MESSENGER」\nWe will send ticket!");
+                    const msg = encodeURIComponent("Thanks for your submission。\n\nTo Transfer : ゆうちょ銀行 : 19540-04447671 (名前- エムワイエイエイチ)\nPlease send your payment Confirmation Letter to this Acc「Tic Ket」\nWe will send ticket!");
                     window.location.href = "thanks.html?msg=" + msg;
                     form.reset(); // 遷移するので実は不要ですが、残してもOK
                 })
