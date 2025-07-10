@@ -251,7 +251,7 @@
                 .then(res => res.text())
                 .then(text => {
                     // 送信成功後、thanks.htmlに遷移。メッセージをURLに含める。
-                    const msg = encodeURIComponent("Thanks for your submission。\n\nTo Transfer : ゆうちょ銀行 : 19540-04447671 (名前- エムワイエイエイチ)\nPlease send your payment Confirmation Letter to this Acc「Tic Ket」\nWe will send ticket!");
+                    const msg = encodeURIComponent("Thanks for your submission。\n\nTo Transfer : ゆうちょ銀行 : 19540-04447671 (名前- エムワイエイエイチ)\nPlease send your payment Confirmation Letter to this Page「Selling Ticket」\nWe will send ticket!");
                     window.location.href = "thanks.html?msg=" + msg;
                     form.reset(); // 遷移するので実は不要ですが、残してもOK
                 })
