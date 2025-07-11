@@ -88,6 +88,10 @@
 
     }
 
+    label.text {
+        font-size: small;
+    }
+
     @keyframes swing {
         0% {
             transform: translateX(-30px);
@@ -102,7 +106,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 120vh;
         padding: 20px;
         box-sizing: border-box;
         overflow: auto;
@@ -127,7 +131,7 @@
         input,
         label,
         select {
-            font-size: 16px;
+            font-size: 10px;
         }
     }
 
@@ -207,7 +211,7 @@
             <label>Facebook Name: <br><input type="text" name="fbName" required></label><br>
             <a href="https://www.facebook.com/share/15J5kkCqfE/?mibextid=wwXIfr">Please Hi to this facebook
                 Page.<b>Required(必要)</b></a>
-            <label>ဒီ Facebook စာမျက်နှာကို 'Hi' လို့မက်ဆေ့ပို့ပြီးနောက် "submit" ခလုတ်ကိုနှိပ်ပါ။ ပြီးနောက်လက်မှတ်ကိုရယူပါ။အကယ်၍ browser မှာ FaceBook page ကိုဝင်ရအဆင်မပြေရင် ကိုယ့်ရဲ့ FaceBook page ရဲ့ Search bar ကနေ “Selling Ticket” လို့ ရိုက်ရှာပါ။ နေကြာပန်းပုံလေးတင်ထားပါတယ်ရှင့်။ </label><br>
+            <label class="text">ဒီ Facebook စာမျက်နှာကို 'Hi' လို့မက်ဆေ့ပို့ပြီးနောက် "submit" ခလုတ်ကိုနှိပ်ပါ။ ပြီးနောက်လက်မှတ်ကိုရယူပါ။အကယ်၍ browser မှာ FaceBook page ကိုဝင်ရအဆင်မပြေရင် ကိုယ့်ရဲ့ FaceBook page ရဲ့ Search bar ကနေ “Selling Ticket” လို့ ရိုက်ရှာပါ။ နေကြာပန်းပုံလေးတင်ထားပါတယ်ရှင့်။ </label><br>
             <button type="submit">Submit</button>
         </form>
     </div>
